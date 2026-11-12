@@ -60,11 +60,13 @@ function initInvitation() {
       }
     }
 
-    $("cover").classList.add("is-hidden");
+    // Transisi pembuka sinematik: taman bunga bergerak sebelum cover menghilang
+    $("cover").classList.add("cover-opening");
     $("mainContent").classList.remove("locked");
     $("mainContent").classList.add("unlocked");
 
-    setTimeout(() => ($("cover").style.display = "none"), 850);
+    setTimeout(() => $("cover").classList.add("is-hidden"), 650);
+    setTimeout(() => ($("cover").style.display = "none"), 1550);
   });
   $("menuToggle").addEventListener("click", () =>
     $("navLinks").classList.toggle("show"),
