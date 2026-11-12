@@ -118,9 +118,43 @@ function initInvitation() {
       "noopener",
     );
   });
+  initScrollAnimations();
   updateCountdown();
   setInterval(updateCountdown, 1000);
 }
+
+function initScrollAnimations() {
+  const sections = document.querySelectorAll("main section");
+  sections.forEach((section, sectionIndex) => {
+    const items = [...section.children].filter((el) => !el.classList.contains("inside-garden"));
+    items.forEach((el, index) => {
+      const direction = (index + sectionIndex) % 3;
+      el.classList.add(direction === 0 ? "reveal-left" : direction === 1 ? "reveal-right" : "reveal-up");
+      el.style.setProperty("--reveal-delay", `${Math.min(index * 110, 440)}ms`);
+    });
+  });
+
+  document.querySelectorAll(".person, .event-card, .timeline article, .gallery-photo, .gift-card, .rsvp-form").forEach((el, index) => {
+    el.classList.add(index % 2 === 0 ? "reveal-up" : "reveal-up");
+    el.style.setProperty("--reveal-delay", `${(index % 4) * 100}ms`);
+  });
+
+  const revealItems = document.querySelectorAll(".reveal-up, .reveal-left, .reveal-right");
+  if (!("IntersectionObserver" in window)) {
+    revealItems.forEach((el) => el.classList.add("is-visible"));
+    return;
+  }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: "0px 0px -45px 0px" });
+  revealItems.forEach((el) => observer.observe(el));
+}
+
 function updateCountdown() {
   const distance = new Date(WEDDING.eventDate).getTime() - Date.now();
   if (distance <= 0) {
