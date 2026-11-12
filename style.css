@@ -1828,3 +1828,134 @@ main .footer > :not(.section-media) {
   color: #f6dce5;
   text-shadow: 0 1px 5px rgba(35,54,43,.35);
 }
+
+
+/* ===== TAMAN BUNGA SINEMATIK: MEKAR, BERGERAK, DAN EFEK KAMERA ===== */
+.garden-scene {
+  transform-origin: 50% 52%;
+  animation: gardenCameraDrift 22s ease-in-out infinite alternate;
+  will-change: transform;
+}
+.garden-scene::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  z-index: 4;
+  pointer-events: none;
+  opacity: .42;
+  background:
+    linear-gradient(112deg, transparent 28%, rgba(255,244,225,.16) 36%, transparent 44%),
+    linear-gradient(72deg, transparent 52%, rgba(255,230,239,.13) 59%, transparent 67%),
+    radial-gradient(ellipse at 50% 18%, rgba(255,244,229,.28), transparent 48%);
+  filter: blur(9px);
+  animation: gardenSunlight 13s ease-in-out infinite alternate;
+}
+.garden-scene::after {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  inset: auto -8% -13%;
+  height: 34%;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 18% 75%, rgba(255,218,229,.34), transparent 42%),
+    radial-gradient(ellipse at 78% 80%, rgba(255,236,225,.27), transparent 43%);
+  filter: blur(17px);
+  animation: foregroundBreeze 8s ease-in-out infinite alternate;
+}
+.garden-haze {
+  animation: hazeBreath 9s ease-in-out infinite alternate;
+}
+.blossom-tree {
+  transform-origin: 28% 88%;
+  will-change: transform;
+}
+.tree-left { animation: treeLeftSway 8s ease-in-out infinite alternate; }
+.tree-right { animation: treeRightSway 9.5s ease-in-out infinite alternate; }
+.blossom-tree i,
+.blossom-tree b,
+.blossom-tree span {
+  background:
+    radial-gradient(ellipse at 18% 28%, #fffaf6 0 5%, transparent 6%),
+    radial-gradient(ellipse at 25% 24%, #f0bdcd 0 9%, transparent 10%),
+    radial-gradient(ellipse at 39% 18%, #fff0f1 0 8%, transparent 9%),
+    radial-gradient(ellipse at 48% 30%, #e9aebe 0 10%, transparent 11%),
+    radial-gradient(ellipse at 67% 22%, #fff7f1 0 7%, transparent 8%),
+    radial-gradient(ellipse at 75% 43%, #efc4d0 0 10%, transparent 11%),
+    radial-gradient(ellipse at 58% 56%, #fff5f2 0 9%, transparent 10%),
+    radial-gradient(ellipse at 35% 61%, #e8afc0 0 9%, transparent 10%),
+    radial-gradient(ellipse at 18% 72%, #fff4f1 0 7%, transparent 8%),
+    radial-gradient(ellipse at 82% 75%, #f4d2d8 0 8%, transparent 9%),
+    radial-gradient(ellipse at 48% 43%, #a8bd9b 0 42%, transparent 72%);
+  filter: drop-shadow(0 8px 9px rgba(39,54,39,.22));
+}
+.blossom-tree i { animation: blossomBloom 6.5s ease-in-out infinite alternate; }
+.blossom-tree b { animation: blossomBloom 7.8s ease-in-out -2.5s infinite alternate-reverse; }
+.blossom-tree span { animation: blossomBloom 8.4s ease-in-out -4s infinite alternate; }
+.blossom-canopy {
+  animation: canopyFloat 11s ease-in-out infinite alternate;
+  filter: blur(1px) drop-shadow(0 14px 18px rgba(35,53,39,.18));
+}
+.canopy-two { animation-delay: -5s; }
+.falling-petals i {
+  box-shadow: 0 3px 9px rgba(69,43,54,.22), inset 2px 1px 3px rgba(255,255,255,.7);
+  transform-style: preserve-3d;
+}
+.cover-opening .garden-scene {
+  animation: cinematicGardenPush 1.65s cubic-bezier(.2,.72,.2,1) forwards;
+}
+.cover-opening .garden-scene::before { animation-duration: 1.6s; opacity: .72; }
+.cover-opening .blossom-tree i,
+.cover-opening .blossom-tree b,
+.cover-opening .blossom-tree span {
+  animation-duration: 1.8s;
+}
+.cover-opening .falling-petals i { animation-duration: 4.2s; }
+@keyframes gardenCameraDrift {
+  0% { transform: scale(1.015) translate3d(-.35%, .15%, 0); }
+  100% { transform: scale(1.075) translate3d(.45%, -.35%, 0); }
+}
+@keyframes cinematicGardenPush {
+  0% { transform: scale(1.04) translate3d(0, 0, 0); filter: brightness(1); }
+  55% { transform: scale(1.18) translate3d(0, -1.2%, 0); filter: brightness(1.12); }
+  100% { transform: scale(1.32) translate3d(0, -2.5%, 0); filter: brightness(1.2); }
+}
+@keyframes gardenSunlight {
+  from { transform: translate3d(-2%, 0, 0) rotate(-2deg); opacity: .22; }
+  to { transform: translate3d(2%, 1%, 0) rotate(2deg); opacity: .58; }
+}
+@keyframes hazeBreath {
+  from { opacity: .55; transform: scale(1); }
+  to { opacity: .95; transform: scale(1.12); }
+}
+@keyframes foregroundBreeze {
+  from { transform: translateX(-2%) scaleX(.96); }
+  to { transform: translateX(2%) scaleX(1.04); }
+}
+@keyframes treeLeftSway {
+  from { transform: rotateY(18deg) scale(1.08) rotateZ(-1.2deg); }
+  to { transform: rotateY(18deg) scale(1.1) rotateZ(1.2deg); }
+}
+@keyframes treeRightSway {
+  from { transform: scaleX(-1) rotateY(18deg) scale(1.08) rotateZ(-1deg); }
+  to { transform: scaleX(-1) rotateY(18deg) scale(1.1) rotateZ(1deg); }
+}
+@keyframes blossomBloom {
+  from { transform: scale(.94) translateY(2px); filter: brightness(.96) drop-shadow(0 5px 5px rgba(39,54,39,.16)); }
+  to { transform: scale(1.055) translateY(-3px); filter: brightness(1.08) drop-shadow(0 9px 10px rgba(39,54,39,.2)); }
+}
+@keyframes canopyFloat {
+  from { translate: 0 0; }
+  to { translate: 0 12px; }
+}
+@media (max-width: 700px) {
+  .garden-scene { animation-duration: 28s; }
+  .garden-scene::before { opacity: .3; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .garden-scene, .garden-scene::before, .garden-scene::after,
+  .garden-haze, .blossom-tree, .blossom-tree i, .blossom-tree b,
+  .blossom-tree span, .blossom-canopy {
+    animation: none !important;
+  }
+}
