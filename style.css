@@ -1796,3 +1796,35 @@ main .footer > :not(.section-media) {
 #cover .btn-light:hover {
   background: linear-gradient(135deg, #78977b, #52785b);
 }
+
+
+/* Kembalikan panel cover ke tampilan kaca transparan seperti sebelumnya */
+#cover .cover-inner {
+  background: linear-gradient(145deg, rgba(255,246,249,.23), rgba(255,255,255,.08));
+  border: 1px solid rgba(255,255,255,.72);
+  box-shadow: 22px 28px 55px rgba(24,42,29,.34),
+              inset 2px 2px 8px rgba(255,255,255,.48),
+              inset -2px -2px 8px rgba(41,61,44,.15);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+/* Warna teks cover tetap pink-matcha, termasuk kalimat permohonan maaf */
+#cover .eyebrow,
+#cover .cover-date,
+#cover .guest-label {
+  color: #e2f0d9;
+}
+#cover .cover-names {
+  color: #e4f0dc;
+}
+#cover .cover-names i,
+#cover .cover-divider {
+  color: #f2b8ca;
+}
+#cover .guest-name {
+  color: #ffd1df;
+}
+#cover .guest-note {
+  color: #f6dce5;
+  text-shadow: 0 1px 5px rgba(35,54,43,.35);
+}
