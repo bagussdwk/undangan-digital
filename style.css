@@ -1731,3 +1731,29 @@ main .footer > :not(.section-media) {
   font-size: clamp(1rem, 4.2vw, 1.3rem);
   white-space: nowrap;
 }
+
+
+/* Pindahkan ikon contactless ))) agar tidak menimpa logo Mandiri */
+.atm-card .atm-card-top {
+  position: absolute;
+  top: 9%;
+  left: 7%;
+  right: 7%;
+}
+.atm-card .atm-contactless {
+  position: absolute;
+  top: 30px;
+  right: 0;
+  z-index: 2;
+  display: block;
+  line-height: 1;
+  transform: rotate(90deg);
+  transform-origin: center;
+}
+@media (max-width: 420px) {
+  .atm-card .atm-contactless {
+    top: 25px;
+    right: 0;
+    font-size: 1.05rem;
+  }
+}
