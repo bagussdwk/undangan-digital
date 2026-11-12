@@ -250,11 +250,21 @@
           ingin berbagi tanda kasih, dapat melalui:
         </p>
         <div class="gift-card">
-          <span class="gift-symbol">♡</span>
           <h3>Amplop Digital</h3>
-          <p class="gift-bank">BANK / E-WALLET</p>
-          <p class="gift-number" id="accountNumber">0000 0000 0000</p>
-          <p class="gift-owner" id="accountOwner">a.n. Nama Penerima</p>
+          <div class="atm-card" aria-label="Kartu rekening untuk hadiah pernikahan">
+            <div class="atm-card-top">
+              <span class="atm-bank" id="giftBank">BANK / E-WALLET</span>
+              <span class="atm-contactless" aria-hidden="true">)))</span>
+            </div>
+            <div class="atm-chip" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+            <p class="gift-number" id="accountNumber">0000 0000 0000</p>
+            <div class="atm-card-bottom">
+              <span class="atm-card-label">NAMA PEMILIK</span>
+              <span class="gift-owner" id="accountOwner">a.n. Nama Penerima</span>
+              <span class="atm-card-mark">♡</span>
+            </div>
+          </div>
+          <p class="gift-note">Simpan nomor rekening ini untuk mengirim tanda kasih.</p>
           <button class="btn btn-dark" type="button" id="copyAccount">
             Salin Nomor Rekening
           </button>
