@@ -1130,3 +1130,156 @@ main .footer > :not(.section-media) {
   .atm-card { min-height: 210px; padding: 20px 18px; }
   .gift-number { letter-spacing: .07em; }
 }
+
+
+/* ===== GAYA KARTU DEBIT MANDIRI ===== */
+.atm-card {
+  width: min(100%, 410px);
+  min-height: 245px;
+  padding: 19px 23px 18px;
+  border-radius: 17px;
+  color: #fff;
+  text-align: left;
+  background:
+    radial-gradient(ellipse at 18% 105%, rgba(0,160,205,.55), transparent 48%),
+    radial-gradient(ellipse at 100% 0%, rgba(0,89,170,.65), transparent 55%),
+    linear-gradient(120deg, #073e78 0%, #0875ad 52%, #06477e 100%);
+  border: 1px solid rgba(255,255,255,.35);
+  box-shadow: 0 19px 36px rgba(0,38,76,.3), inset 0 1px 2px rgba(255,255,255,.45);
+  transform: perspective(1000px) rotateX(2deg) rotateY(-3deg);
+}
+.atm-card::before {
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:inherit;
+  pointer-events:none;
+  opacity:.32;
+  background:
+    linear-gradient(145deg, transparent 30%, rgba(255,255,255,.16) 30.2%, transparent 30.8%),
+    repeating-linear-gradient(125deg, transparent 0 24px, rgba(255,255,255,.035) 25px 26px);
+}
+.mandiri-card-brand {
+  position:absolute;
+  top:17px;
+  right:21px;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  gap:5px;
+}
+.mandiri-word {
+  color:#fff;
+  font:700 1.32rem Arial,sans-serif;
+  letter-spacing:-.07em;
+}
+.mandiri-wave {
+  position:relative;
+  display:block;
+  width:25px;
+  height:20px;
+}
+.mandiri-wave i,.mandiri-wave b {
+  position:absolute;
+  display:block;
+  height:5px;
+  border-radius:100%;
+  background:#f6c642;
+  transform:rotate(-28deg);
+}
+.mandiri-wave i { width:23px; top:4px; left:0; }
+.mandiri-wave b { width:16px; top:11px; left:5px; }
+.mandiri-debit-label {
+  position:absolute;
+  top:42px;
+  right:24px;
+  z-index:2;
+  color:#fff;
+  font:600 .52rem Arial,sans-serif;
+  letter-spacing:.2em;
+}
+.atm-card-top {
+  position:relative;
+  z-index:1;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  min-height:27px;
+  margin-top:24px;
+}
+.atm-bank {
+  color:rgba(255,255,255,.8);
+  font:600 .57rem Arial,sans-serif;
+  letter-spacing:.16em;
+}
+.atm-contactless {
+  color:#fff;
+  font-size:1.35rem;
+  font-weight:700;
+  transform:rotate(90deg);
+  opacity:.85;
+}
+.atm-chip {
+  position:relative;
+  z-index:1;
+  width:43px;
+  height:33px;
+  margin:13px 0 10px;
+  border:1px solid #d7c28c;
+  border-radius:6px;
+  background:linear-gradient(135deg,#f5e7bd,#bca16b);
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  overflow:hidden;
+}
+.atm-chip i { border:1px solid rgba(94,77,45,.52); }
+.atm-number-label {
+  position:relative;
+  z-index:1;
+  color:rgba(255,255,255,.68);
+  font:500 .48rem Arial,sans-serif;
+  letter-spacing:.16em;
+}
+.gift-number {
+  position:relative;
+  z-index:1;
+  margin:4px 0 14px;
+  color:#fff;
+  font:500 clamp(1.02rem,3.8vw,1.28rem) Arial,sans-serif;
+  letter-spacing:.12em;
+  text-shadow:0 1px 3px rgba(0,0,0,.18);
+}
+.atm-card-bottom {
+  position:relative;
+  z-index:1;
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+}
+.atm-card-bottom > div { display:flex; flex-direction:column; gap:4px; }
+.atm-card-label {
+  color:rgba(255,255,255,.68);
+  font:500 .48rem Arial,sans-serif;
+  letter-spacing:.17em;
+}
+.atm-card .gift-owner {
+  color:#fff;
+  margin:0;
+  font:600 .7rem Arial,sans-serif;
+  letter-spacing:.07em;
+  text-transform:uppercase;
+}
+.atm-card-mark {
+  color:#fff;
+  font:700 .68rem Arial,sans-serif;
+  letter-spacing:.12em;
+  border:1px solid rgba(255,255,255,.7);
+  border-radius:5px;
+  padding:4px 7px;
+}
+@media(max-width:420px) {
+  .atm-card { min-height:230px; padding:17px 18px; }
+  .mandiri-card-brand { right:17px; }
+  .mandiri-debit-label { right:20px; }
+  .gift-number { letter-spacing:.075em; }
+}
