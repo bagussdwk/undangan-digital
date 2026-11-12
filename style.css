@@ -1757,3 +1757,42 @@ main .footer > :not(.section-media) {
     font-size: 1.05rem;
   }
 }
+
+
+/* COVER: tipografi matcha-pink dengan kontras lebih jelas */
+#cover .cover-inner {
+  background: rgba(255, 249, 247, .88);
+  border: 1px solid rgba(255, 255, 255, .82);
+  border-radius: 26px;
+  box-shadow: 0 22px 60px rgba(28, 49, 37, .22);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+#cover .eyebrow,
+#cover .cover-date,
+#cover .guest-label,
+#cover .guest-note {
+  color: #49664f;
+  text-shadow: none;
+}
+#cover .cover-names {
+  color: #385b43;
+  text-shadow: 0 2px 12px rgba(255,255,255,.45);
+}
+#cover .cover-names i,
+#cover .cover-divider {
+  color: #cf8298;
+}
+#cover .guest-name {
+  color: #b96582;
+  text-shadow: none;
+}
+#cover .btn-light {
+  color: #fff;
+  background: linear-gradient(135deg, #66866b, #456b50);
+  border: 1px solid rgba(255,255,255,.72);
+  box-shadow: 0 7px 0 #35563f, 0 12px 22px rgba(53,86,63,.24);
+}
+#cover .btn-light:hover {
+  background: linear-gradient(135deg, #78977b, #52785b);
+}
