@@ -933,3 +933,74 @@ main section > * {
     opacity:1;transform:none;filter:none;transition:none;
   }
 }
+
+
+/* ===== VIDEO BACKGROUND BERBEDA DI SETIAP BAGIAN ===== */
+main section,
+main .footer {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+main section > :not(.section-media),
+main .footer > :not(.section-media) {
+  position: relative;
+  z-index: 1;
+}
+.section-media {
+  position: absolute !important;
+  inset: 0;
+  z-index: 0 !important;
+  overflow: hidden;
+  pointer-events: none;
+}
+.section-background-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: .34;
+  filter: saturate(.82);
+}
+.section-media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,247,248,.82), rgba(237,244,232,.78));
+}
+.event-section .section-media::after,
+.footer .section-media::after {
+  background: linear-gradient(135deg, rgba(54,76,60,.82), rgba(76,99,79,.78));
+}
+.event-section .section-background-video,
+.footer .section-background-video {
+  opacity: .38;
+}
+.event-section,
+.footer {
+  color: white;
+}
+.couple-section h2,
+.couple-section .section-desc,
+.story-section h2,
+.story-section .section-desc,
+.gallery-section h2,
+.gallery-section .section-desc,
+.envelope-section h2,
+.envelope-section .section-desc,
+.rsvp-section h2,
+.rsvp-section .section-desc {
+  text-shadow: 0 1px 12px rgba(255,255,255,.55);
+}
+@media (max-width: 700px) {
+  .section-background-video { opacity: .27; }
+  .section-media::after {
+    background: linear-gradient(135deg, rgba(255,247,248,.88), rgba(237,244,232,.86));
+  }
+  .event-section .section-media::after,
+  .footer .section-media::after {
+    background: linear-gradient(135deg, rgba(54,76,60,.88), rgba(76,99,79,.86));
+  }
+}
