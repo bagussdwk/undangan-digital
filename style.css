@@ -1679,3 +1679,35 @@ main .footer > :not(.section-media) {
   .atm-card .atm-card-bottom .atm-card-mark { padding: 3px 5px; }
   .atm-card .gift-owner { font-size: clamp(.43rem, 2.2vw, .58rem); }
 }
+
+
+/* Pisahkan label DEBIT dari logo Mandiri agar tidak saling menimpa */
+.atm-card .mandiri-card-brand {
+  top: 6%;
+  right: 7%;
+  z-index: 3;
+}
+.atm-card .mandiri-word {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+.atm-card .mandiri-wave {
+  flex: 0 0 25px;
+}
+.atm-card .mandiri-debit-label {
+  top: 22%;
+  right: 8%;
+  z-index: 2;
+  line-height: 1;
+  font-size: .48rem;
+  letter-spacing: .18em;
+}
+@media (max-width: 420px) {
+  .atm-card .mandiri-card-brand { top: 6%; right: 7%; }
+  .atm-card .mandiri-word { font-size: 1.05rem; }
+  .atm-card .mandiri-debit-label {
+    top: 21%;
+    right: 8%;
+    font-size: .42rem;
+  }
+}
