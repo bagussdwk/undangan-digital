@@ -42,18 +42,24 @@ function initInvitation() {
   if (bank) bank.textContent = WEDDING.bankName;
   $("mapsLink")?.setAttribute("href", WEDDING.mapsUrl);
   if (guest) $("senderName").value = guestName;
-  $("openInvitation").addEventListener("click", () => {
-    // Putar musik saat undangan dibuka
-    const bgMusic = $("bgMusic");
+  $("openInvitation").addEventListener("click", async () => {
+    // Gunakan satu pemutar musik yang sama untuk seluruh undangan
+    const audio = $("weddingAudio");
+    const musicButton = $("musicToggle");
 
-    if (bgMusic) {
-      bgMusic.volume = 0.4;
-      bgMusic.play().catch((error) => {
-        console.log("Musik gagal diputar:", error);
-      });
+    if (audio) {
+      audio.volume = 0.4;
+      try {
+        await audio.play();
+        if (musicButton) {
+          musicButton.textContent = "♫ Musik ON";
+          musicButton.classList.add("is-playing");
+        }
+      } catch (error) {
+        console.log("Musik belum tersedia atau gagal diputar:", error);
+      }
     }
 
-    // Kode asli membuka undangan
     $("cover").classList.add("is-hidden");
     $("mainContent").classList.remove("locked");
     $("mainContent").classList.add("unlocked");
