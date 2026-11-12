@@ -1397,3 +1397,56 @@ main .footer > :not(.section-media) {
   .atm-card .gift-owner { font-size: .59rem; }
   .atm-card-mark { font-size: .6rem; }
 }
+
+
+/* Rapikan baris bawah kartu: GPN dan nama tetap di DALAM kartu */
+.atm-card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  aspect-ratio: 1.586 / 1;
+  min-height: 0;
+  height: auto;
+  overflow: hidden;
+}
+.atm-card-top { flex: 0 0 auto; }
+.atm-chip { flex: 0 0 auto; }
+.atm-number-label,
+.gift-number { flex: 0 0 auto; }
+.atm-card-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 14px;
+  width: 100%;
+  margin-top: auto;
+  min-height: 34px;
+  position: relative;
+}
+.atm-card-bottom > div {
+  order: 2;
+  margin: 0;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+.atm-card-bottom .atm-card-mark {
+  order: 1;
+  position: static;
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.atm-card .gift-owner {
+  display: block;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 420px) {
+  .atm-card {
+    aspect-ratio: 1.586 / 1;
+    padding: 17px 17px 15px;
+  }
+  .atm-card-bottom { gap: 11px; }
+  .atm-card-bottom > div { margin: 0; }
+}
