@@ -1283,3 +1283,53 @@ main .footer > :not(.section-media) {
   .mandiri-debit-label { right:20px; }
   .gift-number { letter-spacing:.075em; }
 }
+
+
+/* Perbaikan tinggi kartu Mandiri agar semua tulisan punya ruang */
+.atm-card {
+  position: relative;
+  box-sizing: border-box;
+  min-height: 305px;
+  padding: 25px 24px 24px;
+  overflow: hidden;
+}
+.atm-card-top {
+  margin-top: 39px;
+  min-height: 28px;
+}
+.atm-chip {
+  margin: 16px 0 15px;
+}
+.atm-number-label {
+  display: block;
+  margin-top: 2px;
+}
+.gift-number {
+  margin: 7px 0 23px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+.atm-card-bottom {
+  min-height: 30px;
+  gap: 12px;
+}
+.atm-card .gift-owner {
+  line-height: 1.45;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 420px) {
+  .atm-card {
+    min-height: 290px;
+    padding: 22px 18px 22px;
+  }
+  .atm-card-top { margin-top: 38px; }
+  .gift-number {
+    margin-bottom: 21px;
+    font-size: clamp(.95rem, 4vw, 1.12rem);
+    letter-spacing: .045em;
+  }
+  .atm-card .gift-owner {
+    font-size: .64rem;
+    letter-spacing: .045em;
+  }
+}
