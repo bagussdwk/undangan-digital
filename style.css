@@ -1574,3 +1574,108 @@ main .footer > :not(.section-media) {
   .atm-card .atm-card-mark { font-size: .58rem; }
   .atm-card .gift-owner { font-size: .57rem; letter-spacing: .02em; }
 }
+
+
+/* FIX RESPONSIF KARTU: semua posisi mengikuti ukuran kartu, bukan px tetap */
+.atm-card {
+  position: relative;
+  width: min(100%, 410px);
+  aspect-ratio: 1.586 / 1;
+  height: auto;
+  min-height: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.atm-card .mandiri-card-brand { top: 6%; right: 7%; }
+.atm-card .mandiri-debit-label { top: 15%; right: 8%; }
+.atm-card .atm-card-top {
+  position: absolute;
+  top: 9%;
+  left: 7%;
+  right: 7%;
+  margin: 0;
+  min-height: 0;
+}
+.atm-card .atm-chip {
+  position: absolute;
+  top: 27%;
+  left: 7%;
+  width: 11%;
+  height: 13%;
+  margin: 0;
+}
+.atm-card .atm-number-label {
+  position: absolute;
+  top: 55%;
+  left: 7%;
+  margin: 0;
+}
+.atm-card .gift-number {
+  position: absolute;
+  top: 65%;
+  left: 7%;
+  right: 5%;
+  margin: 0;
+  white-space: nowrap;
+  font-size: clamp(.72rem, 3.4vw, 1.12rem);
+  line-height: 1.1;
+  letter-spacing: .025em;
+}
+.atm-card .atm-card-bottom {
+  position: absolute;
+  left: 7%;
+  right: 7%;
+  bottom: 7%;
+  width: auto;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 3%;
+}
+.atm-card .atm-card-bottom .atm-card-mark {
+  position: static;
+  order: 0;
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+  padding: 3px 6px;
+  font-size: clamp(.48rem, 1.8vw, .68rem);
+}
+.atm-card .atm-card-bottom > div {
+  order: 1;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-width: 0;
+  margin: 0;
+  gap: 2px;
+}
+.atm-card .atm-card-label {
+  display: block;
+  font-size: clamp(.38rem, 1.45vw, .48rem);
+  line-height: 1.1;
+}
+.atm-card .gift-owner {
+  display: block;
+  margin: 0;
+  font-size: clamp(.48rem, 1.9vw, .68rem);
+  line-height: 1.15;
+  letter-spacing: 0;
+  white-space: nowrap;
+  overflow: visible;
+}
+@media (max-width: 420px) {
+  .atm-card .gift-number {
+    font-size: clamp(.68rem, 3.6vw, .9rem);
+    letter-spacing: 0;
+  }
+  .atm-card .atm-card-bottom { gap: 3%; }
+  .atm-card .atm-card-bottom .atm-card-mark { padding: 3px 5px; }
+  .atm-card .gift-owner { font-size: clamp(.43rem, 2.2vw, .58rem); }
+}
