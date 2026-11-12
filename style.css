@@ -1450,3 +1450,127 @@ main .footer > :not(.section-media) {
   .atm-card-bottom { gap: 11px; }
   .atm-card-bottom > div { margin: 0; }
 }
+
+
+/* FINAL FIX: nama pemilik dan GPN selalu terlihat di dalam kartu */
+.atm-card {
+  position: relative;
+  display: block;
+  width: min(100%, 410px);
+  aspect-ratio: 1.586 / 1;
+  height: auto;
+  min-height: 0;
+  box-sizing: border-box;
+  padding: 0;
+  overflow: hidden;
+}
+.atm-card .mandiri-card-brand {
+  top: 15px;
+  right: 19px;
+}
+.atm-card .mandiri-debit-label {
+  top: 39px;
+  right: 21px;
+}
+.atm-card .atm-card-top {
+  position: absolute;
+  top: 57px;
+  left: 21px;
+  right: 21px;
+  margin: 0;
+  min-height: 20px;
+}
+.atm-card .atm-chip {
+  position: absolute;
+  top: 85px;
+  left: 21px;
+  width: 39px;
+  height: 28px;
+  margin: 0;
+}
+.atm-card .atm-number-label {
+  position: absolute;
+  top: 126px;
+  left: 21px;
+  margin: 0;
+}
+.atm-card .gift-number {
+  position: absolute;
+  top: 141px;
+  left: 21px;
+  right: 18px;
+  margin: 0;
+  font-size: clamp(.9rem, 3.2vw, 1.12rem);
+  line-height: 1.2;
+  letter-spacing: .07em;
+  white-space: nowrap;
+}
+.atm-card .atm-card-bottom {
+  position: absolute;
+  left: 21px;
+  right: 21px;
+  bottom: 15px;
+  width: auto;
+  min-height: 34px;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 13px;
+}
+.atm-card .atm-card-bottom .atm-card-mark {
+  position: static;
+  order: 0;
+  flex: 0 0 auto;
+  display: inline-flex;
+  margin: 0;
+  padding: 4px 7px;
+}
+.atm-card .atm-card-bottom > div {
+  order: 1;
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-width: 0;
+  margin: 0;
+  gap: 3px;
+}
+.atm-card .atm-card-label {
+  display: block;
+  line-height: 1.1;
+}
+.atm-card .gift-owner {
+  display: block;
+  margin: 0;
+  color: #fff;
+  font-size: clamp(.58rem, 2.2vw, .7rem);
+  line-height: 1.2;
+  letter-spacing: .045em;
+  white-space: nowrap;
+  overflow: visible;
+  text-overflow: clip;
+}
+@media (max-width: 420px) {
+  .atm-card .mandiri-card-brand { top: 13px; right: 16px; }
+  .atm-card .mandiri-debit-label { top: 36px; right: 18px; }
+  .atm-card .atm-card-top { top: 53px; left: 17px; right: 17px; }
+  .atm-card .atm-chip { top: 79px; left: 17px; width: 36px; height: 26px; }
+  .atm-card .atm-number-label { top: 119px; left: 17px; }
+  .atm-card .gift-number {
+    top: 133px;
+    left: 17px;
+    right: 14px;
+    font-size: clamp(.82rem, 4vw, 1rem);
+    letter-spacing: .035em;
+  }
+  .atm-card .atm-card-bottom {
+    left: 17px;
+    right: 17px;
+    bottom: 12px;
+    gap: 10px;
+  }
+  .atm-card .atm-card-mark { font-size: .58rem; }
+  .atm-card .gift-owner { font-size: .57rem; letter-spacing: .02em; }
+}
