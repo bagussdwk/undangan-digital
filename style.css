@@ -1959,3 +1959,21 @@ main .footer > :not(.section-media) {
     animation: none !important;
   }
 }
+
+
+/* Pastikan lapisan taman tidak pernah menutup tombol pembuka */
+#cover { isolation: isolate; }
+#cover .garden-scene {
+  pointer-events: none;
+}
+#cover .cover-inner {
+  position: relative;
+  z-index: 10;
+  pointer-events: auto;
+}
+#cover #openInvitation {
+  position: relative;
+  z-index: 11;
+  pointer-events: auto;
+  cursor: pointer;
+}
