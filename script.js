@@ -22,6 +22,10 @@ function setText(id, value) {
   if (el) el.textContent = value;
 }
 function initInvitation() {
+  // Kunci scroll halaman selama cover undangan masih tampil
+  document.documentElement.classList.add("no-scroll");
+  document.body.classList.add("no-scroll");
+
   const params = new URLSearchParams(window.location.search);
   const guest = params.get("to");
   const guestName = guest ? guest.replace(/\+/g, " ") : "Tamu Undangan";
@@ -66,7 +70,11 @@ function initInvitation() {
     $("mainContent").classList.add("unlocked");
 
     setTimeout(() => $("cover").classList.add("is-hidden"), 650);
-    setTimeout(() => ($("cover").style.display = "none"), 1550);
+    setTimeout(() => {
+      $("cover").style.display = "none";
+      document.documentElement.classList.remove("no-scroll");
+      document.body.classList.remove("no-scroll");
+    }, 1550);
   });
   $("menuToggle").addEventListener("click", () =>
     $("navLinks").classList.toggle("show"),
