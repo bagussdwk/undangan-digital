@@ -1711,3 +1711,23 @@ main .footer > :not(.section-media) {
     font-size: .42rem;
   }
 }
+
+
+/* Hilangkan label DEBIT yang menimpa wordmark Mandiri */
+.atm-card .mandiri-debit-label {
+  display: none !important;
+}
+.atm-card .mandiri-card-brand {
+  top: 7%;
+  right: 7%;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 5;
+}
+.atm-card .mandiri-word {
+  display: inline-block;
+  line-height: 1.15;
+  font-size: clamp(1rem, 4.2vw, 1.3rem);
+  white-space: nowrap;
+}
