@@ -1333,3 +1333,67 @@ main .footer > :not(.section-media) {
     letter-spacing: .045em;
   }
 }
+
+
+/* Kembalikan proporsi kartu ATM standar dan pindahkan logo GPN ke kiri */
+.atm-card {
+  width: min(100%, 410px);
+  aspect-ratio: 1.586 / 1;
+  height: auto;
+  min-height: 0;
+  padding: 20px 23px 18px;
+}
+.atm-card-top {
+  margin-top: 27px;
+  min-height: 24px;
+}
+.atm-chip {
+  width: 40px;
+  height: 29px;
+  margin: 9px 0 8px;
+}
+.atm-number-label { margin-top: 0; }
+.gift-number {
+  margin: 4px 0 13px;
+  line-height: 1.2;
+  font-size: clamp(.95rem, 3.5vw, 1.2rem);
+}
+.atm-card-bottom {
+  min-height: 30px;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.atm-card-bottom > div {
+  margin-left: 57px;
+  min-width: 0;
+}
+.atm-card-mark {
+  position: absolute;
+  left: 0;
+  bottom: 1px;
+  padding: 4px 7px;
+}
+.atm-card .gift-owner {
+  font-size: .66rem;
+  line-height: 1.25;
+  letter-spacing: .045em;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 420px) {
+  .atm-card {
+    aspect-ratio: 1.586 / 1;
+    min-height: 0;
+    padding: 17px 17px 15px;
+  }
+  .atm-card-top { margin-top: 26px; }
+  .atm-chip { margin: 8px 0 7px; }
+  .gift-number {
+    margin: 4px 0 12px;
+    font-size: clamp(.88rem, 4vw, 1.05rem);
+    letter-spacing: .045em;
+  }
+  .atm-card-bottom > div { margin-left: 53px; }
+  .atm-card .gift-owner { font-size: .59rem; }
+  .atm-card-mark { font-size: .6rem; }
+}
