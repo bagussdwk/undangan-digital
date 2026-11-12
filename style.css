@@ -602,3 +602,179 @@ main.unlocked {
     padding: 0 16px;
   }
 }
+
+
+/* ===== REDESAIN PINK MATCHA + 3D DEPTH ===== */
+:root {
+  --ivory: #fff7f8;
+  --paper: #fffdfd;
+  --sage: #8da58b;
+  --sage-dark: #526b59;
+  --gold: #c58e9b;
+  --ink: #493d42;
+  --muted: #89777e;
+}
+body {
+  background: #fff7f8;
+  background-image: radial-gradient(ellipse at 10% 10%, #f8e1e8 0, transparent 35%),
+                    radial-gradient(ellipse at 90% 35%, #e4efdf 0, transparent 38%);
+}
+.cover {
+  background:
+    radial-gradient(circle at 15% 15%, rgba(255,220,232,.38), transparent 30%),
+    linear-gradient(135deg, rgba(62,83,67,.86), rgba(119,143,117,.76)),
+    url("https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1800&q=85") center/cover;
+  perspective: 1400px;
+}
+.cover-inner {
+  position: relative;
+  width: min(100%, 510px);
+  padding: 48px 30px;
+  border: 1px solid rgba(255,255,255,.72);
+  border-radius: 28px;
+  background: linear-gradient(145deg, rgba(255,246,249,.23), rgba(255,255,255,.08));
+  backdrop-filter: blur(16px);
+  box-shadow: 22px 28px 55px rgba(24,42,29,.34),
+              inset 2px 2px 8px rgba(255,255,255,.48),
+              inset -2px -2px 8px rgba(41,61,44,.15);
+  transform: rotateX(2deg);
+  animation: coverFloat 6s ease-in-out infinite;
+  overflow: hidden;
+}
+.cover-inner::before,
+.cover-inner::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+}
+.cover-inner::before {
+  width: 190px; height: 190px; top: -105px; right: -75px;
+  background: rgba(255,220,232,.22);
+  filter: blur(2px);
+}
+.cover-inner::after {
+  width: 150px; height: 150px; bottom: -100px; left: -65px;
+  background: rgba(219,238,213,.2);
+}
+.cover-names {
+  text-shadow: 0 5px 18px rgba(35,49,38,.3);
+}
+.cover-names i { color: #f6cbd8; }
+.cover-divider { border-color: rgba(255,255,255,.65); color: #f6cbd8; }
+.guest-name {
+  display: table;
+  max-width: 100%;
+  margin: 12px auto 0;
+  padding: 13px 24px;
+  border: 1px solid rgba(255,255,255,.75);
+  border-radius: 16px;
+  background: linear-gradient(145deg, rgba(255,255,255,.28), rgba(255,229,237,.14));
+  box-shadow: 8px 10px 22px rgba(29,47,34,.22),
+              inset 1px 1px 5px rgba(255,255,255,.5);
+  overflow-wrap: anywhere;
+}
+.btn-light {
+  border-radius: 999px;
+  color: #fff;
+  background: linear-gradient(135deg, #d9a7b5, #a87989);
+  box-shadow: 0 8px 0 #805c68, 0 15px 26px rgba(31,48,35,.28),
+              inset 0 1px 3px rgba(255,255,255,.6);
+  transform: translateY(-3px);
+}
+.btn-light:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 11px 0 #805c68, 0 20px 30px rgba(31,48,35,.3);
+}
+.section h2, .hero h1, .person h3, .event-card h3,
+.timeline h3, .gift-card h3 { color: var(--sage-dark); }
+.section-kicker { color: #b77f90; }
+.hero { background: linear-gradient(150deg, #fffafb, #f8e9ee); }
+.couple-section { background: linear-gradient(145deg, #f7eee9, #e8f0e5); }
+.event-section {
+  background: linear-gradient(145deg, #526b59, #718b70);
+}
+.story-section { background: #fffafb; }
+.gallery-section { background: linear-gradient(145deg, #f5e8ed, #edf3e9); }
+.envelope-section { background: linear-gradient(145deg, #e7efe3, #f8e8ed); }
+.rsvp-section { background: #fffafb; }
+.footer { background: linear-gradient(135deg, #526b59, #405747); }
+.person, .event-card, .gift-card, .timeline article,
+.gallery-photo, .countdown div, .rsvp-form input,
+.rsvp-form select, .rsvp-form textarea {
+  border-radius: 20px;
+  box-shadow: 10px 13px 26px rgba(73,61,66,.10),
+              -5px -5px 18px rgba(255,255,255,.72);
+}
+.person {
+  padding: 22px 16px;
+  background: linear-gradient(145deg, #fffdfd, #f5e8ec);
+  transform: perspective(900px) rotateY(-2deg);
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+.person:hover, .event-card:hover, .gift-card:hover {
+  transform: translateY(-7px) perspective(900px) rotateX(2deg);
+  box-shadow: 14px 20px 35px rgba(73,61,66,.16);
+}
+.person-photo { box-shadow: 9px 12px 22px rgba(58,73,59,.2); }
+.event-card {
+  border: 1px solid rgba(255,255,255,.8);
+  background: linear-gradient(145deg, #fffdfd, #f5e9ed);
+  transition: .3s ease;
+}
+.countdown div {
+  border: 1px solid rgba(255,255,255,.4);
+  border-radius: 14px;
+  background: rgba(255,255,255,.12);
+  box-shadow: inset 2px 2px 8px rgba(255,255,255,.12),
+              5px 7px 16px rgba(33,53,39,.14);
+}
+.timeline article > span {
+  background: linear-gradient(145deg, #d9a7b5, #a87989);
+  box-shadow: 0 5px 12px rgba(92,61,73,.25);
+}
+.gallery-photo {
+  border: 5px solid rgba(255,255,255,.8);
+  box-shadow: 9px 12px 22px rgba(73,61,66,.16);
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+.gallery-photo:hover {
+  transform: translateY(-8px) rotate(-1.5deg) scale(1.025);
+  box-shadow: 15px 20px 30px rgba(73,61,66,.2);
+}
+.gift-card {
+  border: 1px solid #ead4dc;
+  border-radius: 24px;
+  background: linear-gradient(145deg, #fffdfd, #f8e8ed);
+  box-shadow: 14px 18px 35px rgba(73,61,66,.13),
+              inset 1px 1px 5px white;
+}
+.btn-dark {
+  border-radius: 999px;
+  background: linear-gradient(135deg, #718b70, #4d6654);
+  box-shadow: 0 6px 0 #394d3e, 0 12px 22px rgba(53,75,57,.2);
+}
+.btn-dark:hover { transform: translateY(-3px); }
+.rsvp-form input, .rsvp-form select, .rsvp-form textarea {
+  border: 1px solid #ead9df;
+  background: rgba(255,255,255,.9);
+  border-radius: 12px;
+  box-shadow: inset 2px 2px 6px rgba(73,61,66,.04);
+}
+.topbar {
+  background: rgba(255,250,251,.9);
+  box-shadow: 0 5px 22px rgba(73,61,66,.07);
+}
+.brand, .menu-toggle { color: var(--sage-dark); }
+@keyframes coverFloat {
+  0%, 100% { transform: translateY(0) rotateX(2deg) rotateY(-1deg); }
+  50% { transform: translateY(-9px) rotateX(0deg) rotateY(1deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cover-inner { animation: none; }
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}
+@media (max-width: 700px) {
+  .cover-inner { padding: 38px 20px; border-radius: 23px; }
+  .person { transform: none; }
+}
