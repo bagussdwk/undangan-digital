@@ -901,3 +901,110 @@ body {
 @media(prefers-reduced-motion:reduce){
   .falling-petals i,.cover-opening .blossom-tree{animation:none!important}
 }
+
+
+/* ===== TAMAN BUNGA BERLANJUT DI DALAM UNDANGAN ===== */
+.inside-garden {
+  position: fixed;
+  inset: 0;
+  z-index: 9;
+  overflow: hidden;
+  pointer-events: none;
+  isolation: isolate;
+}
+.inside-tree {
+  position: absolute;
+  bottom: -12%;
+  width: clamp(150px, 25vw, 360px);
+  height: 88%;
+  opacity: .30;
+  filter: drop-shadow(8px 10px 12px rgba(53,69,51,.22));
+}
+.inside-tree-left { left: -9%; }
+.inside-tree-right { right: -9%; transform: scaleX(-1); }
+.inside-tree::before {
+  content: "";
+  position: absolute;
+  left: 28%;
+  bottom: 0;
+  width: 15%;
+  height: 76%;
+  border-radius: 55% 45% 0 0;
+  background: linear-gradient(90deg,#354b39,#87977a 48%,#455d43);
+  transform: rotate(8deg);
+  transform-origin: bottom;
+}
+.inside-tree::after {
+  content: "";
+  position: absolute;
+  left: 30%;
+  bottom: 42%;
+  width: 72%;
+  height: 34%;
+  border-top: 12px solid #526b50;
+  border-radius: 50%;
+  transform: rotate(-28deg);
+  box-shadow: 30px -28px 0 -4px #657e5d, 65px -58px 0 -7px #526b50;
+}
+.inside-tree span,.inside-tree i,.inside-tree b {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 25% 35%,#fff8f5 0 5%,transparent 6%),
+    radial-gradient(circle at 54% 28%,#efc4d0 0 9%,transparent 10%),
+    radial-gradient(circle at 68% 58%,#fff0f2 0 8%,transparent 9%),
+    radial-gradient(circle at 38% 68%,#e6afbf 0 7%,transparent 8%),
+    radial-gradient(ellipse,#91a889 0 43%,transparent 72%);
+}
+.inside-tree span { width:190px;height:190px;left:4%;top:5%; }
+.inside-tree i { width:175px;height:180px;left:38%;top:17%; }
+.inside-tree b { width:160px;height:170px;left:0;top:32%; }
+.inside-petals { position:absolute;inset:0;overflow:hidden; }
+.inside-petals i {
+  position:absolute;
+  top:-25px;
+  left:var(--x);
+  width:10px;height:15px;
+  border-radius:80% 10% 80% 10%;
+  background:linear-gradient(135deg,#fff7f4,#e7a9bb);
+  box-shadow:0 2px 7px rgba(89,55,68,.2);
+  opacity:0;
+  animation:insidePetalFall var(--duration) linear var(--delay) infinite;
+}
+.inside-petals i:nth-child(1){--x:8%;--duration:10s;--delay:-0s}
+.inside-petals i:nth-child(2){--x:45%;--duration:11.7s;--delay:-2.3s}
+.inside-petals i:nth-child(3){--x:82%;--duration:13.4s;--delay:-4.6s}
+.inside-petals i:nth-child(4){--x:23%;--duration:15.1s;--delay:-6.8999999999999995s}
+.inside-petals i:nth-child(5){--x:60%;--duration:16.8s;--delay:-9.2s}
+.inside-petals i:nth-child(6){--x:1%;--duration:18.5s;--delay:-11.5s}
+.inside-petals i:nth-child(7){--x:38%;--duration:20.2s;--delay:-13.799999999999999s}
+.inside-petals i:nth-child(8){--x:75%;--duration:10s;--delay:-0.09999999999999787s}
+.inside-petals i:nth-child(9){--x:16%;--duration:11.7s;--delay:-2.3999999999999986s}
+.inside-petals i:nth-child(10){--x:53%;--duration:13.4s;--delay:-4.699999999999999s}
+.inside-petals i:nth-child(11){--x:90%;--duration:15.1s;--delay:-7s}
+.inside-petals i:nth-child(12){--x:31%;--duration:16.8s;--delay:-9.299999999999997s}
+.inside-petals i:nth-child(13){--x:68%;--duration:18.5s;--delay:-11.599999999999998s}
+.inside-petals i:nth-child(14){--x:9%;--duration:20.2s;--delay:-13.899999999999999s}
+.inside-petals i:nth-child(15){--x:46%;--duration:10s;--delay:-0.19999999999999574s}
+.inside-petals i:nth-child(16){--x:83%;--duration:11.7s;--delay:-2.5s}
+.inside-petals i:nth-child(17){--x:24%;--duration:13.4s;--delay:-4.799999999999997s}
+.inside-petals i:nth-child(18){--x:61%;--duration:15.1s;--delay:-7.099999999999994s}
+.inside-petals i:nth-child(19){--x:2%;--duration:16.8s;--delay:-9.399999999999999s}
+.inside-petals i:nth-child(20){--x:39%;--duration:18.5s;--delay:-11.699999999999996s}
+@keyframes insidePetalFall {
+  0%{transform:translate3d(0,-4vh,0) rotate(0deg);opacity:0}
+  12%{opacity:.72}
+  55%{transform:translate3d(35px,55vh,0) rotate(250deg)}
+  100%{transform:translate3d(-28px,112vh,0) rotate(560deg);opacity:0}
+}
+@media(max-width:700px){
+  .inside-tree {width:42vw;height:72%;opacity:.23}
+  .inside-tree span {width:125px;height:130px}
+  .inside-tree i {width:115px;height:120px}
+  .inside-tree b {width:105px;height:110px}
+  .inside-tree::before {width:12%}
+}
+@media(prefers-reduced-motion:reduce){
+  .inside-petals i {animation:none;display:none}
+}
