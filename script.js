@@ -126,7 +126,7 @@ function initInvitation() {
 function initScrollAnimations() {
   const sections = document.querySelectorAll("main section");
   sections.forEach((section, sectionIndex) => {
-    const items = [...section.children].filter((el) => !el.classList.contains("inside-garden"));
+    const items = [...section.children].filter((el) => !el.classList.contains("inside-garden") && !el.classList.contains("section-media"));
     items.forEach((el, index) => {
       const direction = (index + sectionIndex) % 3;
       el.classList.add(direction === 0 ? "reveal-left" : direction === 1 ? "reveal-right" : "reveal-up");
