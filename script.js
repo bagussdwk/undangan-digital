@@ -46,36 +46,45 @@ function initInvitation() {
   if (bank) bank.textContent = WEDDING.bankName;
   $("mapsLink")?.setAttribute("href", WEDDING.mapsUrl);
   if (guest) $("senderName").value = guestName;
-  $("openInvitation").addEventListener("click", async () => {
-    // Gunakan satu pemutar musik yang sama untuk seluruh undangan
-    const audio = $("weddingAudio");
-    const musicButton = $("musicToggle");
+  const openButton = $("openInvitation");
+  if (openButton) {
+    openButton.addEventListener("click", () => {
+      const cover = $("cover");
+      const main = $("mainContent");
+      const audio = $("weddingAudio");
+      const musicButton = $("musicToggle");
 
-    if (audio) {
-      audio.volume = 0.4;
-      try {
-        await audio.play();
-        if (musicButton) {
-          musicButton.textContent = "♫ Musik ON";
-          musicButton.classList.add("is-playing");
-        }
-      } catch (error) {
-        console.log("Musik belum tersedia atau gagal diputar:", error);
+      // Buka konten terlebih dahulu agar tidak bergantung pada keberhasilan audio.
+      if (cover) cover.classList.add("cover-opening");
+      if (main) {
+        main.classList.remove("locked");
+        main.classList.add("unlocked");
       }
-    }
 
-    // Transisi pembuka sinematik: taman bunga bergerak sebelum cover menghilang
-    $("cover").classList.add("cover-opening");
-    $("mainContent").classList.remove("locked");
-    $("mainContent").classList.add("unlocked");
+      // Musik dimulai setelah klik pengguna; kegagalan audio tidak menghalangi undangan.
+      if (audio) {
+        audio.volume = 0.4;
+        const playback = audio.play();
+        if (playback && typeof playback.then === "function") {
+          playback.then(() => {
+            if (musicButton) {
+              musicButton.textContent = "♫ Musik ON";
+              musicButton.classList.add("is-playing");
+            }
+          }).catch((error) => {
+            console.log("Musik belum tersedia atau gagal diputar:", error);
+          });
+        }
+      }
 
-    setTimeout(() => $("cover").classList.add("is-hidden"), 650);
-    setTimeout(() => {
-      $("cover").style.display = "none";
-      document.documentElement.classList.remove("no-scroll");
-      document.body.classList.remove("no-scroll");
-    }, 1550);
-  });
+      setTimeout(() => cover?.classList.add("is-hidden"), 650);
+      setTimeout(() => {
+        if (cover) cover.style.display = "none";
+        document.documentElement.classList.remove("no-scroll");
+        document.body.classList.remove("no-scroll");
+      }, 1550);
+    });
+  }
   $("menuToggle").addEventListener("click", () =>
     $("navLinks").classList.toggle("show"),
   );
